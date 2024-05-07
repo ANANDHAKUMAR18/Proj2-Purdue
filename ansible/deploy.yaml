@@ -1,6 +1,6 @@
 ---
 - name: Deploy Docker Container
-  hosts: localhost
+  hosts: 4.236.160.132
   become: true
   tasks:
     - name: Pull Docker image
@@ -14,4 +14,4 @@
         image: "{{ docker_username }}/{{ docker_image_name }}:{{ docker_image_tag }}"
         state: started
         ports:
-          - "8080:8080"
+          - "8082:8080"
