@@ -1,6 +1,6 @@
 ---
 - name: Deploy Docker Container
-  hosts: 4.236.160.132
+  hosts: localhost
   become: true
   tasks:
     - name: Pull Docker image
