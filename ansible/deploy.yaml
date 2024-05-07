@@ -1,0 +1,17 @@
+---
+- name: Deploy Docker Container
+  hosts: all
+  become: true
+  tasks:
+    - name: Pull Docker image
+      docker_image:
+        name: "{{ docker_username }}/{{ docker_image_name }}:{{ docker_image_tag }}"
+        source: pull
+
+    - name: Start Docker container
+      docker_container:
+        name: "my-container"
+        image: "{{ docker_username }}/{{ docker_image_name }}:{{ docker_image_tag }}"
+        state: started
+        ports:
+          - "8080:8080"
