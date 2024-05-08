@@ -1,17 +1,33 @@
 ---
-- name: Deploy Docker Container
+- name: Deploy ABC Technologies Project
   hosts: localhost
   become: true
+  become_method: sudo
+  become_user: root
   tasks:
-    - name: Pull Docker image
+    - name: Ensure Docker is installed
+      package:
+        name: docker
+        state: present
+
+    - name: Start and enable Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Pull the latest nginx image
       docker_image:
-        name: "{{ docker_username }}/{{ docker_image_name }}:{{ docker_image_tag }}"
+        name: {{docker_username}}/{{docker_image_name}}:{{docker_image_tag}}
         source: pull
 
-    - name: Start Docker container
+    - name: Run an nginx container
       docker_container:
-        name: "my-container"
-        image: "{{ docker_username }}/{{ docker_image_name }}:{{ docker_image_tag }}"
+        name: new-container
+        image: {{docker_username}}/{{docker_image_name}}:{{docker_image_tag}}
         state: started
         ports:
-          - "8081:8080"
+          - "8081:8080" 
+        restart_policy: always
+
+
