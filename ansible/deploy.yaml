@@ -10,12 +10,6 @@
         name: docker
         state: present
 
-    - name: Start and enable Docker service
-      service:
-        name: docker
-        state: started
-        enabled: true
-
     - name: Pull the latest nginx image
       docker_image:
         name: {{docker_username}}/{{docker_image_name}}:{{docker_image_tag}}
