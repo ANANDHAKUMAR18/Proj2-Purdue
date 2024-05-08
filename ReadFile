@@ -110,3 +110,29 @@ pipeline {
     }
 }
 
+---
+- name: Deploy ABC Technologies Project
+  hosts: localhost
+  become: true
+  become_method: sudo
+  become_user: jenkins
+  tasks:
+    - name: Ensure Docker is installed
+      package:
+        name: docker
+        state: present
+
+    - name: Pull the latest nginx image
+      docker_image:
+        name: {{docker_username}}/{{docker_image_name}}:{{docker_image_tag}}
+        source: pull
+
+    - name: Run an ABC Technologies Container
+      docker_container:
+        name: abc-container
+        image: {{docker_username}}/{{docker_image_name}}:{{docker_image_tag}}
+        state: started
+        ports:
+          - "8081:8080" 
+        restart_policy: always
+
