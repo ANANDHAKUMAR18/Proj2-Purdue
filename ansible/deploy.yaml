@@ -21,9 +21,9 @@
         name: {{docker_username}}/{{docker_image_name}}:{{docker_image_tag}}
         source: pull
 
-    - name: Run an nginx container
+    - name: Run an ABC Technologies Container
       docker_container:
-        name: new-container
+        name: abc-container
         image: {{docker_username}}/{{docker_image_name}}:{{docker_image_tag}}
         state: started
         ports:
