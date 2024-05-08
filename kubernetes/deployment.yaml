@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: my-container
-          image: "{{ DOCKER_USERNAME }}/{{ DOCKER_IMAGE_NAME }}:{{ DOCKER_IMAGE_TAG }}"
+          image: "{{ docker_username}}/{{ docker_image_name }}:{{ docker_image_tag }}"
           ports:
             - containerPort: 8081
