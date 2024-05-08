@@ -136,3 +136,39 @@ pipeline {
           - "8081:8080" 
         restart_policy: always
 
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /home/anandhakumar/.minikube/ca.crt
+    extensions:
+    - extension:
+        last-update: Thu, 09 May 2024 03:48:38 IST
+        provider: minikube.sigs.k8s.io
+        version: v1.32.0
+      name: cluster_info
+    server: https://127.0.0.1:42859
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    extensions:
+    - extension:
+        last-update: Thu, 09 May 2024 03:48:38 IST
+        provider: minikube.sigs.k8s.io
+        version: v1.32.0
+      name: context_info
+    namespace: default
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user:
+    client-certificate: /home/anandhakumar/.minikube/profiles/minikube/client.crt
+    client-key: /home/anandhakumar/.minikube/profiles/minikube/client.key
+
+
+
+
