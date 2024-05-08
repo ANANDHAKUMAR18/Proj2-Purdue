@@ -14,4 +14,4 @@
         image: "{{ docker_username }}/{{ docker_image_name }}:{{ docker_image_tag }}"
         state: started
         ports:
-          - "8082:8080"
+          - "8081:8080"
