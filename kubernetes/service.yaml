@@ -4,7 +4,7 @@ metadata:
   name: abc-service
 spec:
   selector:
-    app: "${Label}"
+    app: '${Label}'
   ports:
     - protocol: TCP
       port: 8081
