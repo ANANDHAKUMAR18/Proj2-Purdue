@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: Label
+      app: LABEL
   template:
     metadata:
       labels:
-        app:  Label
+        app:  LABEL
     spec:
       containers:
         - name: my-container
