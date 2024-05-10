@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: abc-service
+        app: "${Label}"
     spec:
       containers:
         - name: my-container
