@@ -6,7 +6,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: abc-service
+      app: "${Label}"
   template:
     metadata:
       labels:
