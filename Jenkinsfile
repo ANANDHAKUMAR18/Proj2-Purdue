@@ -1,4 +1,4 @@
-cdpipeline {
+pipeline {
     agent any
     environment {
         DOCKER_REGISTRY = 'docker.io'
