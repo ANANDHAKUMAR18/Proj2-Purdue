@@ -10,7 +10,7 @@
         name: docker
         state: present
 
-    - name: Pull the latest nginx image
+    - name: Pull our ABC Technologies image
       docker_image:
         name: {{docker_username}}/{{docker_image_name}}:{{docker_image_tag}}
         source: pull
