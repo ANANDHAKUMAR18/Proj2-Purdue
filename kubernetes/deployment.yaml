@@ -16,4 +16,4 @@ spec:
         - name: my-container
           image: ${DOCKER_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
